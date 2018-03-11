@@ -26,7 +26,8 @@ class neuralNetwork:
 		self.who = (numpy.random.rand(self.onodes, self.hnodes) - 0.5)
 		
 		# this weight initialization scheme sets center of normal distribution
-		# to zero.  It should perform better but does not (1 epoch)
+		# to zero.  It should perform better but differences become apparent
+		# only for ~>5 epochs
 		#self.wih = numpy.random.normal(0.0, pow(self.hnodes, -0.5),(self.hnodes, self.inodes))
 		#self.who = numpy.random.normal(0.0, pow(self.onodes, -0.5), (self.onodes, self.hnodes))
 
@@ -114,7 +115,7 @@ training_data_file.close()
 
 # train the neural network
 # epochs is the number of times the training data set is used for training
-epochs = 5
+epochs = 1
 
 for e in range(epochs):
 	# go through all record in the training data set
@@ -137,8 +138,7 @@ test_data_list = test_data_file.readlines()
 test_data_file.close()
 
 all_values = test_data_list[0].split(',')
-####### Cannot yet display the image, printed array does not always indicate
-#######  correct highest value but the conclusion is correct.
+####### Cannot yet display the image #######
 # print the label
 print(all_values[0])
 image_array = numpy.asfarray(all_values[1:]).reshape((28,28))

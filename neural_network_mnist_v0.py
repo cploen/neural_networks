@@ -21,9 +21,15 @@ class neuralNetwork:
 		# w11 w21
 		# w12 w22 etc
 
-		# these weights need to be updated with something more sophisticated
+		# simple weights give ~ 85% accuracy on full testing, training run (1 epoch)
 		self.wih = (numpy.random.rand(self.hnodes, self.inodes) - 0.5)
 		self.who = (numpy.random.rand(self.onodes, self.hnodes) - 0.5)
+		
+		# this weight initialization scheme sets center of normal distribution
+		# to zero.  It should perform better but does not (1 epoch)
+		#self.wih = numpy.random.normal(0.0, pow(self.hnodes, -0.5),(self.hnodes, self.inodes))
+		#self.who = numpy.random.normal(0.0, pow(self.onodes, -0.5), (self.onodes, self.hnodes))
+
 
 
 		# learning rate
@@ -108,7 +114,7 @@ training_data_file.close()
 
 # train the neural network
 # epochs is the number of times the training data set is used for training
-epochs = 1
+epochs = 5
 
 for e in range(epochs):
 	# go through all record in the training data set
@@ -134,9 +140,11 @@ all_values = test_data_list[0].split(',')
 ####### Cannot yet display the image, printed array does not always indicate
 #######  correct highest value but the conclusion is correct.
 # print the label
-#print(all_values[0])
-#image_array = numpy.asfarray(all_values[1:]).reshape((28,28))
+print(all_values[0])
+image_array = numpy.asfarray(all_values[1:]).reshape((28,28))
 #matplotlib.pyplot.imshow(image_array, cmap='Greys', interpolation='None')
+image_plot = plt.imshow(image_array, cmap='Greys', interpolation='None')
+
 #print n.query((numpy.asfarray(all_values[1:]) / 255.0 * 0.99) + 0.01)
 
 # test the neural network

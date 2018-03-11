@@ -12,10 +12,12 @@ You will also need training and test data sets. I have uploaded small sets,
 but you may acquire much larger sets from http://pjreddie.com/projects/mnist-in-csv/.
 
 To run the code in the terminal, edit the paths to training and test data first. 
+
 Then type
+
 $ python neural_network_mnist_v0.py
 
-Using the full training and test sets takes approximately 2 minutes on my laptop;
+Using the full training and test sets for one epoch takes approximately 2 minutes on my laptop;
 it may take more or less time on your machine.
 
 Acknowledgments

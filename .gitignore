@@ -1,0 +1,11 @@
+#VIM temp files
+*~
+*.swp
+*.swo
+
+# Large data sets
+MNIST_datasets/test_data/mnist_test.csv
+MNIST_datasets/training_data/mnist_train.csv
+
+
+
